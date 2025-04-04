@@ -18,7 +18,9 @@
         <Label Content="Employeur" HorizontalAlignment="Left" Margin="30,135,0,0" VerticalAlignment="Top"/>
         <Label Content="NIP" HorizontalAlignment="Left" Margin="30,158,0,0" VerticalAlignment="Top"/>
 
-        <TextBox HorizontalAlignment="Left" Margin="101,70,0,0" TextWrapping="Wrap"  Text="{Binding NAS}" VerticalAlignment="Top" Width="120"/>
+        <TextBox 
+            HorizontalAlignment="Left" Margin="101,70,0,0" TextWrapping="Wrap"  
+            Text="{Binding NAS}" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Margin="101,93,0,0" TextWrapping="Wrap"  Text="{Binding client.Nom}" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Margin="101,116,0,0" TextWrapping="Wrap" Text="{Binding client.Prenom}" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Margin="101,139,0,0" TextWrapping="Wrap" Text="{Binding client.Employeur}" VerticalAlignment="Top" Width="120"/>
@@ -40,29 +42,29 @@
 
         <Label Content="Compte" HorizontalAlignment="Left" Margin="333,30,0,0" VerticalAlignment="Top"/>
 
-        <Button Command="{Binding commandNouveauCompte}" Content="Nouveau compte" HorizontalAlignment="Left" Margin="333,119,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Command="{Binding commandNouveauCompte}" Content="Nouveau compte" HorizontalAlignment="Left" Margin="333,197,0,0" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="No de compte" HorizontalAlignment="Left" Margin="348,152,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="No de compte" HorizontalAlignment="Left" Margin="348,230,0,0" VerticalAlignment="Top" Width="90"/>
         <ComboBox ItemsSource="{Binding ClientSelect.ListeComptes}"
                   DisplayMemberPath="NumeroCompte"
                   SelectedItem="{Binding compte}"
-                  HorizontalAlignment="Left" Margin="333,178,0,0" 
+                  HorizontalAlignment="Left" Margin="333,256,0,0" 
                   VerticalAlignment="Top" Width="120" />
-        <Label Content="NIP" HorizontalAlignment="Left" Margin="334,209,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="383,213,0,0" TextWrapping="Wrap" 
+        <Label Content="NIP" HorizontalAlignment="Left" Margin="334,287,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="383,291,0,0" TextWrapping="Wrap" 
                  Text="{Binding Nip_Connexion}" VerticalAlignment="Top" Width="70"/>
 
-        <Button Command="{Binding commandConnexion}" Content="Connexion" HorizontalAlignment="Left" Margin="333,248,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Command="{Binding commandConnexion}" Content="Connexion" HorizontalAlignment="Left" Margin="333,326,0,0" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="Solde : " HorizontalAlignment="Left" Margin="346,273,0,0" VerticalAlignment="Top"/>
-        <Label Content="{Binding compteAuth.Solde}" HorizontalAlignment="Left" Margin="400,273,0,0" VerticalAlignment="Top" Width="53"/>
+        <Label Content="Solde : " HorizontalAlignment="Left" Margin="346,351,0,0" VerticalAlignment="Top"/>
+        <Label Content="{Binding compteAuth.Solde}" HorizontalAlignment="Left" Margin="400,351,0,0" VerticalAlignment="Top" Width="53"/>
 
-        <Label Content="Ancien NIP" HorizontalAlignment="Left" Margin="300,318,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="393,322,0,0" TextWrapping="Wrap" Text="{Binding Nip1}" VerticalAlignment="Top" Width="98"/>
-        <Label Content="Nouveau NIP" HorizontalAlignment="Left" Margin="300,348,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="393,352,0,0" TextWrapping="Wrap" Text="{Binding Nip2}" VerticalAlignment="Top" Width="98"/>
+        <Label Content="Ancien NIP" HorizontalAlignment="Left" Margin="300,395,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="393,399,0,0" TextWrapping="Wrap" Text="{Binding Nip1}" VerticalAlignment="Top" Width="98"/>
+        <Label Content="Nouveau NIP" HorizontalAlignment="Left" Margin="300,426,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="393,430,0,0" TextWrapping="Wrap" Text="{Binding Nip2}" VerticalAlignment="Top" Width="98"/>
 
-        <Button Command="{Binding commandChangerNip}" Content="Changer NIP" HorizontalAlignment="Left" Margin="340,385,0,0" VerticalAlignment="Top" Width="113"/>
+        <Button Command="{Binding commandChangerNip}" Content="Changer NIP" HorizontalAlignment="Left" Margin="340,463,0,0" VerticalAlignment="Top" Width="113"/>
 
         <Label Content="Transactions" HorizontalAlignment="Left" Margin="521,30,0,0" VerticalAlignment="Top"/>
 
@@ -86,6 +88,24 @@
             Command="{Binding CommandEnvoyerVirement}" Content="Virement" 
             HorizontalAlignment="Left" Margin="623,144,0,0" 
             VerticalAlignment="Top" Width="79"/>
+        <Label 
+            Content="Succ:" HorizontalAlignment="Left" Height="26" Margin="297,117,0,0" 
+            VerticalAlignment="Top" Width="37"/>
+        <Label 
+            Content="Taux:" HorizontalAlignment="Left" Height="26" Margin="454,120,0,0" 
+            VerticalAlignment="Top" Width="37"/>
+        <Label 
+            Content="Max:" HorizontalAlignment="Left" Height="26" Margin="370,120,0,0" 
+            VerticalAlignment="Top" Width="36"/>
+        <TextBox 
+            HorizontalAlignment="Left" Margin="282,162,0,0" TextWrapping="Wrap" 
+            Text="{Binding Succursale}" VerticalAlignment="Top" Width="66" Height="17"/>
+        <TextBox 
+            HorizontalAlignment="Left" Margin="361,162,0,0" TextWrapping="Wrap" 
+            Text="{Binding Limite}" VerticalAlignment="Top" Width="66" Height="17"/>
+        <TextBox 
+            HorizontalAlignment="Left" Margin="442,162,0,0" TextWrapping="Wrap" 
+            Text="{Binding Taux}" VerticalAlignment="Top" Width="66" Height="17"/>
 
     </Grid>
 </Window>

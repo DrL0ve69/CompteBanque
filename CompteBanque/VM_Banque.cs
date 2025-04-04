@@ -58,6 +58,9 @@ namespace CompteBanque
 
         public string Nip1 { get; set; }
         public string Nip2 { get; set; }
+        public string Succursale { get; set; }
+        public string Taux { get; set; }
+        public string Limite { get; set; }
 
         public string Montant { get; set; }
         private string _typeCompte;
@@ -188,6 +191,23 @@ namespace CompteBanque
             if (ClientSelect != null && SelectedTypeCompte != null)
             {
                 ClientSelect.OuvrirCompte(SelectedTypeCompte);
+                if (SelectedTypeCompte == "Épargne" && decimal.TryParse(Taux, out _))
+                {
+                    CompteEpargne compteCopie = (CompteEpargne)ClientSelect.ListeComptes.Last(c => c is CompteEpargne);
+                    compteCopie.TauxInteret = decimal.Parse(Taux);
+                    int indexCount = ClientSelect.ListeComptes.Count - 1;
+                    ClientSelect.ListeComptes.RemoveAt(indexCount);
+                    ClientSelect.ListeComptes.Add(compteCopie);
+                }
+                else if (SelectedTypeCompte == "Crédit" && decimal.TryParse(Limite, out _) && decimal.TryParse(Taux, out _)) 
+                {
+                    CompteCredit compteCopie = (CompteCredit)ClientSelect.ListeComptes.Last(c => c is CompteCredit);
+                    compteCopie.TauxInteret = decimal.Parse(Taux);
+                    compteCopie.Limite = decimal.Parse(Limite);
+                    int indexCount = ClientSelect.ListeComptes.Count - 1;
+                    ClientSelect.ListeComptes.RemoveAt(indexCount);
+                    ClientSelect.ListeComptes.Add(compteCopie);
+                }
                 MessageBox.Show("Le compte a été créé");
                 Client copie = ClientSelect;
                 ClientSelect = null; // forcer la mise à jour du combobox
